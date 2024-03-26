@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.importExcel.mapper.ImportExcelMapper">
+    <insert id="batchInsertData" parameterType="list">
+        INSERT INTO t_user (id, name,create_time)
+        VALUES
+        <foreach collection="list" item="user" separator=",">
+            (#{user.id}, #{user.name},#{user.createTime})
+        </foreach>
+    </insert>
+
+    <select id="findAllUser" resultType="com.demo.importExcel.entity.User">
+        select * from t_user
+    </select>
+
+    <select id="findUserById" resultType="int">
+        select count(id) from t_user where id=#{id}
+    </select>
+</mapper>

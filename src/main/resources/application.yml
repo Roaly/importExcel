@@ -1,0 +1,12 @@
+spring:
+  #MySQL
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/test?allowMultiQueries=true
+      username: root
+      password: 123456
+      type: com.alibaba.druid.pool.DruidDataSource
+#mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.demo.importExcel.entity
